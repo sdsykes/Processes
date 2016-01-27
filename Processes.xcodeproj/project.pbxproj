@@ -12,6 +12,9 @@
 		3A51F2A81C52C3C800BBD614 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A51F2A61C52C3C800BBD614 /* MainMenu.xib */; };
 		3A51F2B31C52C3C800BBD614 /* ProcessesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A51F2B21C52C3C800BBD614 /* ProcessesTests.swift */; };
 		3A51F2BE1C52C3C800BBD614 /* ProcessesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A51F2BD1C52C3C800BBD614 /* ProcessesUITests.swift */; };
+		3A51F2CE1C52C62400BBD614 /* bsdProcesses.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A51F2CC1C52C62400BBD614 /* bsdProcesses.c */; };
+		3A51F2E71C56BB1800BBD614 /* ProcessesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A51F2E61C56BB1800BBD614 /* ProcessesDataSource.swift */; };
+		3A51F2E91C56DA0100BBD614 /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A51F2E81C56DA0100BBD614 /* Auth.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,12 @@
 		3A51F2B91C52C3C800BBD614 /* ProcessesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProcessesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A51F2BD1C52C3C800BBD614 /* ProcessesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessesUITests.swift; sourceTree = "<group>"; };
 		3A51F2BF1C52C3C800BBD614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A51F2CB1C52C62400BBD614 /* Processes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Processes-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A51F2CC1C52C62400BBD614 /* bsdProcesses.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bsdProcesses.c; sourceTree = "<group>"; };
+		3A51F2CD1C52C62400BBD614 /* bsdProcesses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bsdProcesses.h; sourceTree = "<group>"; };
+		3A51F2E61C56BB1800BBD614 /* ProcessesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessesDataSource.swift; sourceTree = "<group>"; };
+		3A51F2E81C56DA0100BBD614 /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
+		3A51F2EA1C56DA9D00BBD614 /* Auth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +103,15 @@
 			isa = PBXGroup;
 			children = (
 				3A51F2A21C52C3C800BBD614 /* AppDelegate.swift */,
+				3A51F2E61C56BB1800BBD614 /* ProcessesDataSource.swift */,
+				3A51F2CC1C52C62400BBD614 /* bsdProcesses.c */,
+				3A51F2CD1C52C62400BBD614 /* bsdProcesses.h */,
+				3A51F2E81C56DA0100BBD614 /* Auth.m */,
+				3A51F2EA1C56DA9D00BBD614 /* Auth.h */,
 				3A51F2A41C52C3C800BBD614 /* Assets.xcassets */,
 				3A51F2A61C52C3C800BBD614 /* MainMenu.xib */,
 				3A51F2A91C52C3C800BBD614 /* Info.plist */,
+				3A51F2CB1C52C62400BBD614 /* Processes-Bridging-Header.h */,
 			);
 			path = Processes;
 			sourceTree = "<group>";
@@ -250,6 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A51F2A31C52C3C800BBD614 /* AppDelegate.swift in Sources */,
+				3A51F2CE1C52C62400BBD614 /* bsdProcesses.c in Sources */,
+				3A51F2E71C56BB1800BBD614 /* ProcessesDataSource.swift in Sources */,
+				3A51F2E91C56DA0100BBD614 /* Auth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,11 +398,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Processes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.Processes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Processes/Processes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -392,11 +413,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = Processes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.switchstep.Processes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Processes/Processes-Bridging-Header.h";
 			};
 			name = Release;
 		};
